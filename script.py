@@ -1,8 +1,6 @@
-from Bio.Seq import Seq
+from Bio import SeqIO
 from Bio.Data import CodonTable
-from Bio.Alphabet import generic_dna
 import argparse
-
 
 def snp_away(dna, codons):
     snp = False
@@ -30,24 +28,16 @@ def highlight_residues(amino_acid, sequence):
         if value == amino_acid:
             codons.append(key)
 
-    dna = Seq(sequence.read().strip(), generic_dna)
+    dna = SeqIO.read(sequence, 'fasta').seq
 
-    # keep track of which residues are one nucleotide away
-    highlighted = []
     for i in range(0, len(dna), 3):
-        if len(dna[i:i+3]) == 3:
-            if snp_away((dna[i:i+3]).upper(), codons):
-                highlighted.append(i/3)
+        current_nts = dna[i:i+3]
+        current_aas = str(current_nts.translate())
 
-    # translate and mark amino acids
-    prot = str(dna.translate())
-
-    with open('out.txt', 'w') as outfile:
-        for num, p in enumerate(prot):
-            if num in highlighted:
-                outfile.write("\'%s\'" % p)
-            else:
-                outfile.write(p)
+        if snp_away(current_nts.upper(), codons):
+            print current_aas.upper(),
+        else:
+            print current_aas,
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Find residues that are one SNP away from input amino acid.')
