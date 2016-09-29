@@ -37,7 +37,7 @@ def highlight_residues(amino_acid, sequence):
         if snp_away(current_nts.upper(), codons):
             print current_aas.upper(),
         else:
-            print current_aas,
+            print current_aas.lower(),
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Find residues that are one SNP away from input amino acid.')
