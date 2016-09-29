@@ -4,6 +4,9 @@ import argparse
 
 def snp_away(dna, codons):
     snp = False
+    if dna in codons:
+        return False
+
     for codon in codons:
         score = 0
         for num, nuc in enumerate(dna):
@@ -12,11 +15,8 @@ def snp_away(dna, codons):
 
         if score == 2:
             snp = True
-        if score == 3:
-            return False
 
     return snp
-
 
 def highlight_residues(amino_acid, sequence):
     # get amino acid codon table
@@ -28,21 +28,24 @@ def highlight_residues(amino_acid, sequence):
         if value == amino_acid:
             codons.append(key)
 
+    # read in fasta file
     dna = SeqIO.read(sequence, 'fasta').seq
 
+    # digest dna three bases at a time
     for i in range(0, len(dna), 3):
         current_nts = dna[i:i+3]
         current_aas = str(current_nts.translate())
 
+        # check if bases are one mutation away from input amino acid
         if snp_away(current_nts.upper(), codons):
-            print current_aas.upper(),
+            print "'" + current_aas.upper() + "'",
         else:
-            print current_aas.lower(),
+            print current_aas.upper(),
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Find residues that are one SNP away from input amino acid.')
     parser.add_argument('sequence', type=file, help='Path to DNA sequence')
-    parser.add_argument('amino_acid', help="One letter code for amino acid")
+    parser.add_argument('amino_acid', help='One letter code for amino acid')
     # parser.add_argument('frame', type=int, help="Reading frame (1,2, or 3)")
     args = parser.parse_args()
 
