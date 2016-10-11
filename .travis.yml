@@ -5,10 +5,8 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
-  - "3.5-dev" # 3.5 development branch
-  - "3.6-dev" # 3.6 development branch
-  - "nightly" # currently points to 3.7-dev
 # command to run tests
 script:
-    - pip install biopython
+    - pip install biopython planemo
     - python script.py test-data/seq.fa P
+    - planemo test script.xml
