@@ -1,4 +1,4 @@
-# One SNP Away [![Build Status](https://travis-ci.org/TAMU-CPT/one_snp_away.svg?branch=master)](https://travis-ci.org/TAMU-CPT/one_snp_away)
+# One SNP Away [![DOI](https://zenodo.org/badge/69503866.svg)](https://zenodo.org/badge/latestdoi/69503866) [![Build Status](https://travis-ci.org/TAMU-CPT/one_snp_away.svg?branch=master)](https://travis-ci.org/TAMU-CPT/one_snp_away)
 
 Given a DNA FASTA sequence and a one letter amino acid code, this tool will output the translated sequence
 and denote the residues that are one single nucleotide polymorphism (SNP) away from the 
