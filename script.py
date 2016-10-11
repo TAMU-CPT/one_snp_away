@@ -3,26 +3,33 @@ from Bio.Data import CodonTable
 import argparse
 
 def snp_away(dna, codons):
+    """ determines if codon is one SNP away from amino acid sequence """
+
     snp = False
+    # ignore if codon has the same sequence as the amino acid
     if dna in codons:
         return False
 
+    # score codon based on number of identical bases
     for codon in codons:
         score = 0
         for num, nuc in enumerate(dna):
             if nuc == codon[num]:
                 score += 1
 
+        # 2 identical bases means codon is one mutation away
         if score == 2:
             snp = True
 
     return snp
 
 def highlight_residues(amino_acid, sequence):
+    """ prints translated residues """
+
     # get amino acid codon table
     standard_table = CodonTable.unambiguous_dna_by_name["Standard"]
 
-    # find codons for input amino acid
+    # build codon list for input amino acid
     codons = []
     for key, value in standard_table.forward_table.iteritems():
         if value == amino_acid:
