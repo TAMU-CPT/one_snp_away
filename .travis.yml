@@ -9,4 +9,4 @@ python:
 script:
     - pip install biopython planemo
     - python script.py test-data/seq.fa P
-    - planemo test script.xml
+    - planemo test --conda_dependency_resolution script.xml
