@@ -11,4 +11,4 @@ python:
 # command to run tests
 script:
     - pip install biopython
-    - python script.py seq.fa P
+    - python script.py test-data/seq.fa P
