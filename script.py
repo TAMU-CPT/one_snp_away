@@ -53,7 +53,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Find residues that are one SNP away from input amino acid.')
     parser.add_argument('sequence', type=file, help='Path to DNA sequence')
     parser.add_argument('amino_acid', help='One letter code for amino acid')
-    # parser.add_argument('frame', type=int, help="Reading frame (1,2, or 3)")
+    # TODO: reading frame specification
     args = parser.parse_args()
 
     highlight_residues(**vars(args))
