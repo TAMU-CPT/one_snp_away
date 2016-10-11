@@ -10,7 +10,7 @@ command line.
 - [biopython] (http://biopython.org/wiki/Biopython)
 
 ## Running in Galaxy
-// provide link for galaxy
+This tool is available in the [CPT's Public Galaxy Instance](https://cpt.tamu.edu/galaxy-pub/root?tool_id=edu.tamu.cpt.one_snp_away)
 
 ## Local installation
 #### First, clone the repository and enter the directory:
