@@ -1,11 +1,13 @@
-# One SNP Away
+# One SNP Away [![Build Status](https://travis-ci.org/TAMU-CPT/one_snp_away.svg?branch=master)](https://travis-ci.org/TAMU-CPT/one_snp_away)
+
 Given a FASTA sequence and a one letter amino acid code, this tool will output the translated sequence
 and denote the residues that are one single nucleotide polymorphism (SNP) away from the 
 input amino acid. This tool is available on Galaxy, but may also be run locally from the 
 command line.
 
 ## Requirements
-- Python 2.7, 3.4
+- Python 2.7, 3.3, 3.4, 3.5
+- [biopython] (http://biopython.org/wiki/Biopython)
 
 ## Running in Galaxy
 // provide link
