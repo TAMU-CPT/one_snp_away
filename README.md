@@ -10,7 +10,7 @@ command line.
 - [biopython] (http://biopython.org/wiki/Biopython)
 
 ## Running in Galaxy
-// provide link
+// provide link for galaxy
 
 ## Local installation
 #### First, clone the repository and enter the directory:
