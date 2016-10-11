@@ -1,3 +1,4 @@
+from __future__ import print_function
 from Bio import SeqIO
 from Bio.Data import CodonTable
 import argparse
@@ -31,7 +32,7 @@ def highlight_residues(amino_acid, sequence):
 
     # build codon list for input amino acid
     codons = []
-    for key, value in standard_table.forward_table.iteritems():
+    for key, value in standard_table.forward_table.items():
         if value == amino_acid:
             codons.append(key)
 
@@ -45,13 +46,13 @@ def highlight_residues(amino_acid, sequence):
 
         # check if bases are one mutation away from input amino acid
         if snp_away(current_nts.upper(), codons):
-            print "'" + current_aas.upper() + "'",
+            print("'" + current_aas.upper() + "'", end=" ")
         else:
-            print current_aas.upper(),
+            print(current_aas.upper(), end=" ")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Find residues that are one SNP away from input amino acid.')
-    parser.add_argument('sequence', type=file, help='Path to DNA sequence')
+    parser.add_argument('sequence', type=argparse.FileType('r'), help='Path to DNA sequence')
     parser.add_argument('amino_acid', help='One letter code for amino acid')
     # TODO: reading frame specification
     args = parser.parse_args()
