@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tool id="edu.tamu.cpt.one_snp_away" name="One SNP Away" version="1.0.0">
+<tool id="edu.tamu.cpt.one_snp_away" name="One SNP Away" version="1.1">
   <description>Finds residues that are one SNP away from input amino acid</description>
   <requirements>
     <requirement type="package" version="2.7">python</requirement>
@@ -13,7 +13,7 @@ $aa_code
 > $output]]></command>
   <inputs>
     <param label="DNA FASTA file" name="sequence" type="data" format="fasta" />
-    <param label="amino acid one letter code" name="aa_code" type="text" value="P"/>
+    <param label="amino acid one letter code" name="aa_code" type="txt" value="P"/>
   </inputs>
   <outputs>
     <data format="text" name="output"/>
