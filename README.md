@@ -16,6 +16,10 @@ command line.
 $ git clone git@github.com:TAMU-CPT/one_snp_away.git
 $ cd one_snp_away
 ```
+#### Install biopython
+```console
+$ pip install biopython
+```
 #### Run the script with the path to the FASTA file and a one letter amino acid code:
 ```console
 $ python script.py path/to/fasta.fa P > output.txt
