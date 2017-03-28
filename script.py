@@ -3,6 +3,7 @@ from Bio import SeqIO
 from Bio.Data import CodonTable
 import argparse
 
+
 def snp_away(dna, codons):
     """ determines if codon is one SNP away from amino acid sequence """
 
@@ -24,6 +25,7 @@ def snp_away(dna, codons):
 
     return snp
 
+
 def highlight_residues(amino_acid, sequence):
     """ prints translated residues """
 
@@ -41,7 +43,7 @@ def highlight_residues(amino_acid, sequence):
 
     # digest dna three bases at a time
     for i in range(0, len(dna), 3):
-        current_nts = dna[i:i+3]
+        current_nts = dna[i:i + 3]
         current_aas = str(current_nts.translate())
 
         # check if bases are one mutation away from input amino acid
@@ -49,6 +51,7 @@ def highlight_residues(amino_acid, sequence):
             print("'" + current_aas.upper() + "'", end=" ")
         else:
             print(current_aas.upper(), end=" ")
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Find residues that are one SNP away from input amino acid.')
