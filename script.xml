@@ -4,7 +4,6 @@
   <requirements>
     <requirement type="package" version="2.7">python</requirement>
     <requirement type="package" version="1.67">biopython</requirement>
-    <yield/>
   </requirements>
   <command detect_errors="aggressive"><![CDATA[
 python $__tool_directory__/script.py
